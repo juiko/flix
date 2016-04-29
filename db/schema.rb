@@ -11,31 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425202742) do
+ActiveRecord::Schema.define(version: 20160429070325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "capitulos", force: :cascade do |t|
+    t.string   "nombre"
+    t.text     "sinopsis"
+    t.integer  "numero"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "clientes", force: :cascade do |t|
-    t.string   "mail"
-    t.string   "telefono"
     t.string   "nombre"
+    t.string   "telefono"
+    t.string   "mail"
     t.string   "contraseña"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "contrata", force: :cascade do |t|
-    t.date     "fecha"
+  create_table "compras", force: :cascade do |t|
+    t.date     "fecha_compra"
     t.date     "fecha_vencimiento"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "cliente_id"
+    t.integer  "suscripcion_id"
   end
+
+  add_index "compras", ["cliente_id"], name: "index_compras_on_cliente_id", using: :btree
+  add_index "compras", ["suscripcion_id"], name: "index_compras_on_suscripcion_id", using: :btree
 
   create_table "generos", force: :cascade do |t|
     t.string   "nombre"
@@ -43,41 +51,84 @@ ActiveRecord::Schema.define(version: 20160425202742) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "generos_peliculas", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "pelicula_id"
+    t.integer  "genero_id"
+  end
+
+  add_index "generos_peliculas", ["genero_id"], name: "index_generos_peliculas_on_genero_id", using: :btree
+  add_index "generos_peliculas", ["pelicula_id"], name: "index_generos_peliculas_on_pelicula_id", using: :btree
+
+  create_table "generos_series", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "series_id"
+    t.integer  "genero_id"
+  end
+
+  add_index "generos_series", ["genero_id"], name: "index_generos_series_on_genero_id", using: :btree
+  add_index "generos_series", ["series_id"], name: "index_generos_series_on_series_id", using: :btree
+
   create_table "peliculas", force: :cascade do |t|
+    t.string   "nombre"
+    t.text     "sinopsis"
     t.date     "fecha"
-    t.string   "sinopsis"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "pgeneros", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "peliculas_usuarios", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "usuario_id"
+    t.integer  "pelicula_id"
   end
 
-  create_table "s_generos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_index "peliculas_usuarios", ["pelicula_id"], name: "index_peliculas_usuarios_on_pelicula_id", using: :btree
+  add_index "peliculas_usuarios", ["usuario_id"], name: "index_peliculas_usuarios_on_usuario_id", using: :btree
 
   create_table "series", force: :cascade do |t|
-    t.string   "sinopsis"
+    t.string   "nombre"
+    t.text     "sinopsis"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "series_usuarios", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "usuario_id"
+    t.integer  "series_id"
+  end
+
+  add_index "series_usuarios", ["series_id"], name: "index_series_usuarios_on_series_id", using: :btree
+  add_index "series_usuarios", ["usuario_id"], name: "index_series_usuarios_on_usuario_id", using: :btree
 
   create_table "suscripcions", force: :cascade do |t|
     t.string   "nombre"
-    t.string   "precio"
-    t.string   "descripcion"
+    t.integer  "precio"
+    t.text     "descripcion"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "temporadas", force: :cascade do |t|
+    t.integer  "numero"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "temporadas_series", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "series_id"
+    t.integer  "temporada_id"
+  end
+
+  add_index "temporadas_series", ["series_id"], name: "index_temporadas_series_on_series_id", using: :btree
+  add_index "temporadas_series", ["temporada_id"], name: "index_temporadas_series_on_temporada_id", using: :btree
 
   create_table "usuarios", force: :cascade do |t|
     t.string   "nick"
@@ -85,14 +136,28 @@ ActiveRecord::Schema.define(version: 20160425202742) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "ve_peliculas", force: :cascade do |t|
+  create_table "usuarios_clientes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "cliente_id"
+    t.integer  "usuario_id"
   end
 
-  create_table "ve_series", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_index "usuarios_clientes", ["cliente_id"], name: "index_usuarios_clientes_on_cliente_id", using: :btree
+  add_index "usuarios_clientes", ["usuario_id"], name: "index_usuarios_clientes_on_usuario_id", using: :btree
 
+  add_foreign_key "compras", "clientes"
+  add_foreign_key "compras", "suscripcions"
+  add_foreign_key "generos_peliculas", "generos"
+  add_foreign_key "generos_peliculas", "peliculas"
+  add_foreign_key "generos_series", "generos"
+  add_foreign_key "generos_series", "series"
+  add_foreign_key "peliculas_usuarios", "peliculas"
+  add_foreign_key "peliculas_usuarios", "usuarios"
+  add_foreign_key "series_usuarios", "series"
+  add_foreign_key "series_usuarios", "usuarios"
+  add_foreign_key "temporadas_series", "series"
+  add_foreign_key "temporadas_series", "temporadas"
+  add_foreign_key "usuarios_clientes", "clientes"
+  add_foreign_key "usuarios_clientes", "usuarios"
 end

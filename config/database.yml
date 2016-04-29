@@ -22,16 +22,13 @@ default: &default
   pool: 5
 
   database: flix
-  username: myapp
-  password: pass
+  username: flix
+  password: flix
   host: localhost
 
 development:
   <<: *default
 
-  database: flix
-  username: myapp
-  password: pass
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.

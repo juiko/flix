@@ -2,10 +2,10 @@
 
 one:
   nombre: MyString
-  precio: MyString
-  descripcion: MyString
+  precio: 1
+  descripcion: MyText
 
 two:
   nombre: MyString
-  precio: MyString
-  descripcion: MyString
+  precio: 1
+  descripcion: MyText

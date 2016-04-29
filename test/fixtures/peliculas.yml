@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  fecha: 2016-04-25
-  sinopsis: MyString
+  nombre: MyString
+  sinopsis: MyText
+  fecha: 2016-04-29
 
 two:
-  fecha: 2016-04-25
-  sinopsis: MyString
+  nombre: MyString
+  sinopsis: MyText
+  fecha: 2016-04-29

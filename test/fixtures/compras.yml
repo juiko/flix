@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha_compra: 2016-04-29
+  fecha_vencimiento: 2016-04-29
+
+two:
+  fecha_compra: 2016-04-29
+  fecha_vencimiento: 2016-04-29
