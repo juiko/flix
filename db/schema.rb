@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160429070325) do
+ActiveRecord::Schema.define(version: 20160502051546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,13 @@ ActiveRecord::Schema.define(version: 20160429070325) do
   add_index "peliculas_usuarios", ["pelicula_id"], name: "index_peliculas_usuarios_on_pelicula_id", using: :btree
   add_index "peliculas_usuarios", ["usuario_id"], name: "index_peliculas_usuarios_on_usuario_id", using: :btree
 
+  create_table "personas", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "edad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "series", force: :cascade do |t|
     t.string   "nombre"
     t.text     "sinopsis"
@@ -118,7 +125,10 @@ ActiveRecord::Schema.define(version: 20160429070325) do
     t.integer  "numero"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "series_id"
   end
+
+  add_index "temporadas", ["series_id"], name: "index_temporadas_on_series_id", using: :btree
 
   create_table "temporadas_series", force: :cascade do |t|
     t.datetime "created_at",   null: false
@@ -156,6 +166,7 @@ ActiveRecord::Schema.define(version: 20160429070325) do
   add_foreign_key "peliculas_usuarios", "usuarios"
   add_foreign_key "series_usuarios", "series"
   add_foreign_key "series_usuarios", "usuarios"
+  add_foreign_key "temporadas", "series"
   add_foreign_key "temporadas_series", "series"
   add_foreign_key "temporadas_series", "temporadas"
   add_foreign_key "usuarios_clientes", "clientes"
