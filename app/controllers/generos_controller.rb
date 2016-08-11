@@ -1,0 +1,3 @@
+class GenerosController < ApplicationController
+
+end

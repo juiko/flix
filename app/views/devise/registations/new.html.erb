@@ -1,0 +1,49 @@
+<div class="row center-xs">
+<div class="col-xs-8 col-md-6">
+<div class="box text.left">
+	<h2> Regustrarse </h2>
+
+	<%= from_for(resource, as: resourse_name, url: registration_path(resourse_name)) do |f| %>
+		<%= devise_error_messages! %>
+
+	<div class= "field">
+		<%= f.label :nombre, "Nombre del Usuario" %><br />	
+		<%= f.nombre_field :nombre, autofocus: true, class:"form-control" %>
+	</div>
+
+	<div class= "field">
+		<%= f.label :telefono, "Telefono " %><br />	
+		<%= f.telefono_field :telefono, autofocus: true, class:"form-control" %>
+	</div>
+
+	<div class= "field">
+		<%= f.label :email %><br />	
+		<%= f.email_field :email, autofocus: true, class:"form-control" %>
+	</div>
+
+
+	<div class="field">
+		<%= f.label :password, "Contraseña" %>
+		<%= if @validate %>	
+		<em>(<%= @minimum_password_length %> Min 4 caracteres)</em>
+		<%= f.password_field :password, autocomplete:"off", class:"form-control" %>
+	</div>
+		
+	<div class="field">
+		<%= f.label :password_confirmation, "confirmar contraseña" %><br />
+		<%= f.password_field :password_confirmation, autocomplete:"off", class:"form-control" %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit "Registrarse", class:"btn be.black" %>
+	</div>
+
+	<% end %>
+
+	<div class="actions">
+		<%= render "devise/shared/links"%>
+	</div>
+
+</div>
+</div>
+</div>

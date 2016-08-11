@@ -1,6 +1,24 @@
 Rails.application.routes.draw do
-  get 'startup/index'
 
+  get 'startup/index'
+ 
+  resources:series
+  resources:peliculas
+  resources:generos
+  resources:suscripciones
+  resources:clientes
+  resources:usuarios
+  resources:temporadas
+  resources:capitulos
+  resources:compras
+
+
+
+
+
+
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,3 @@
+class TemporadasController < ApplicationController
+
+end
