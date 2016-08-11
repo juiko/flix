@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
+get 'startup/index'
+
   devise_for :clientes
-  devise_for :clientes
-  get 'startup/index'
- 
   resources:series
   resources:peliculas
   resources:generos

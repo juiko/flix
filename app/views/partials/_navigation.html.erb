@@ -26,9 +26,15 @@
                         <a href="/perfil">Perfil</a>
                     </li>
                     <li>
-                        <a href="/login">Login</a>
-                    </li>
+                        <% if cliente_signed_in? %>
+                            <li > 
+                            <%= link_to "Cerrar sesion", destroy_cliente_session_path, method: :delete %> </li>
 
+                        <% else %>
+                            <li> <% link_to "Iniciar Sesion", new_cliente_session_path %>
+                            </li>
+                        <% end %>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

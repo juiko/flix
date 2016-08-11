@@ -30,13 +30,13 @@ class AddDeviseToClientes < ActiveRecord::Migration
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-
+      t.string :nombre
+      t.string :permission_level
+      t.integer :telefono
       # Uncomment below if timestamps were not included in your original model.
       # t.timestamps null: false
     end
 
-    add_index :clientes, :email,                unique: true
-    add_index :clientes, :reset_password_token, unique: true
     # add_index :clientes, :confirmation_token,   unique: true
     # add_index :clientes, :unlock_token,         unique: true
   end

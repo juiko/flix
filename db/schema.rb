@@ -6,12 +6,12 @@
 # Note that this schema.rb definition is the authoritative source for your
 # database schema. If you need to create the application database on another
 # system, you should be using db:schema:load, not running all the migrations
-# froms cratch. The latter is a flawed and unsustainable approach (the more migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502051546) do
+ActiveRecord::Schema.define(version: 20160811221108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,18 @@ ActiveRecord::Schema.define(version: 20160502051546) do
     t.string   "telefono"
     t.string   "mail"
     t.string   "contraseña"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
   end
 
   create_table "compras", force: :cascade do |t|
@@ -79,15 +89,15 @@ ActiveRecord::Schema.define(version: 20160502051546) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "peliculas_clientes", force: :cascade do |t|
+  create_table "peliculas_usuarios", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "cliente_id"
+    t.integer  "usuario_id"
     t.integer  "pelicula_id"
   end
 
-  add_index "peliculas_clientes", ["pelicula_id"], name: "index_peliculas_cliente_on_pelicula_id", using: :btree
-  add_index "peliculas_clientes", ["cliente_id"], name: "index_peliculas_clientes_on_cliente_id", using: :btree
+  add_index "peliculas_usuarios", ["pelicula_id"], name: "index_peliculas_usuarios_on_pelicula_id", using: :btree
+  add_index "peliculas_usuarios", ["usuario_id"], name: "index_peliculas_usuarios_on_usuario_id", using: :btree
 
   create_table "series", force: :cascade do |t|
     t.string   "nombre"
@@ -96,15 +106,15 @@ ActiveRecord::Schema.define(version: 20160502051546) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "series_clientes", force: :cascade do |t|
+  create_table "series_usuarios", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "cliente_id"
+    t.integer  "usuario_id"
     t.integer  "series_id"
   end
 
-  add_index "series_clientes", ["series_id"], name: "index_series_clientes_on_series_id", using: :btree
-  add_index "series_clientes", ["cliente_id"], name: "index_series_clientes_on_cliente_id", using: :btree
+  add_index "series_usuarios", ["series_id"], name: "index_series_usuarios_on_series_id", using: :btree
+  add_index "series_usuarios", ["usuario_id"], name: "index_series_usuarios_on_usuario_id", using: :btree
 
   create_table "suscripcions", force: :cascade do |t|
     t.string   "nombre"
@@ -123,6 +133,21 @@ ActiveRecord::Schema.define(version: 20160502051546) do
 
   add_index "temporadas", ["series_id"], name: "index_temporadas_on_series_id", using: :btree
 
+  create_table "usuarios", force: :cascade do |t|
+    t.string   "nick"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "usuarios_clientes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "cliente_id"
+    t.integer  "usuario_id"
+  end
+
+  add_index "usuarios_clientes", ["cliente_id"], name: "index_usuarios_clientes_on_cliente_id", using: :btree
+  add_index "usuarios_clientes", ["usuario_id"], name: "index_usuarios_clientes_on_usuario_id", using: :btree
 
   add_foreign_key "compras", "clientes"
   add_foreign_key "compras", "suscripcions"
@@ -130,9 +155,11 @@ ActiveRecord::Schema.define(version: 20160502051546) do
   add_foreign_key "generos_peliculas", "peliculas"
   add_foreign_key "generos_series", "generos"
   add_foreign_key "generos_series", "series"
-  add_foreign_key "peliculas_clientes", "peliculas"
-  add_foreign_key "peliculas_clientes", "cliente"
-  add_foreign_key "series_clientes", "series"
-  add_foreign_key "series_clientes", "cliente"
+  add_foreign_key "peliculas_usuarios", "peliculas"
+  add_foreign_key "peliculas_usuarios", "usuarios"
+  add_foreign_key "series_usuarios", "series"
+  add_foreign_key "series_usuarios", "usuarios"
   add_foreign_key "temporadas", "series"
+  add_foreign_key "usuarios_clientes", "clientes"
+  add_foreign_key "usuarios_clientes", "usuarios"
 end
