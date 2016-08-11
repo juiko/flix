@@ -6,9 +6,7 @@ def index
 end
 
 def show
-#busqueda
 	@cliente = Cliente.find(params[:id])
-#Cliente.where("id = ? AND mail ?",params[:id],params[:id])
 end
 
 
