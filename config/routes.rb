@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'startup/index'
- 
+
   resources:series
   resources:peliculas
   resources:generos
@@ -12,13 +12,6 @@ Rails.application.routes.draw do
   resources:capitulos
   resources:compras
 
-
-
-
-
-
-
-  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
