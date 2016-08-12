@@ -1,9 +1,9 @@
 <div class="row center-xs">
   <div class="col-xs-8 col-md-6">
-  
+  <div class="box text.left">
       <h2>Iniciar secion</h2>
 
-      <%= form_for(resourse, as: resourse_name, url: session_path(resourse_name)) do |f| %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
       <div class="field">
         <%= f.label :email %></br>
@@ -12,7 +12,7 @@
 
       <div class="field">
         <%= f.label :password %></br>
-        <%= f.email_field :password, autocomplete: "off" , class:"form-control"%>
+        <%= f.password_field :password, autocomplete: "off" , class:"form-control"%>
       </div>
 
 
@@ -32,6 +32,5 @@
 
 
   </div>
+  </div>
 </div>
-
-
