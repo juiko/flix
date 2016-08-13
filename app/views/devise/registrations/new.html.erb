@@ -1,13 +1,13 @@
 <div class="row center-xs">
 	<div class="col-xs-8 col-md-6">
-		<div class="box text.left">
+		<div class="box text-left">
 			<h2> Registrarse </h2>
 
 			<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 				<%= devise_error_messages! %>
 
 			<div class= "field">
-				<%= f.label :nombre, "Nombre del Usuario" %><br />	
+				<%= f.label :nombre, "Nombre del Usuario *" %><br />	
 				<%= f.text_field :nombre, autofocus: true, class:"form-control" %>
 			</div>
 
@@ -17,13 +17,13 @@
 			</div>
 
 			<div class= "field">
-				<%= f.label :email %><br />	
+				<%= f.label :email,"Emal *" %><br />	
 				<%= f.email_field :email, autofocus: true, class:"form-control" %>
 			</div>
 
 
 			<div class="field">
-				<%= f.label :password, "Contraseña" %>
+				<%= f.label :password, "Contraseña *" %>
 				<% if @validatable %>	
 				<em>(<%= @minimum_password_length %> Min 8 caracteres)</em>
 				<% end %></br>
@@ -31,12 +31,12 @@
 			</div>
 				
 			<div class="field">
-				<%= f.label :password_confirmation, "confirmar contraseña" %><br />
+				<%= f.label :password_confirmation, "confirmar contraseña *" %><br />
 				<%= f.password_field :password_confirmation, autocomplete:"off", class:"form-control" %>
 			</div>
 
 			<div class="actions">
-				<%= f.submit "Registrarse", class:"btn" %>
+				<%= f.submit "Registrarse",class:"btn be-b white" %>
 			</div>
 
 			<% end %>
