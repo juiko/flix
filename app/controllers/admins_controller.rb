@@ -1,8 +1,14 @@
-class ModelController < ApplicationController
+class AdminsController < ApplicationController
 
-def index
-#get   select alll
-        @cliente = Cliente.all
-end
+  ### No se que modelo ocupar xd
+
+  def index
+    #get   select alll
+    @admin = Cliente.all
+  end
+
+  def show
+    @admin = Cliente.find(params[:id])
+  end
 
 end

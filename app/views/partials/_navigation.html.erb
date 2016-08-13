@@ -1,43 +1,42 @@
 <body>
 
-    <nav class="navbar-fixed-top navbar-inverse" >
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Flix</a>
-            </div>
+  <nav class="navbar-fixed-top navbar-inverse" >
+    <div class="container-fluid">
+      <div class="navbar-header">
+	<a class="navbar-brand" href="#">Flix</a>
+      </div>
 
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="/buscar">Buscar</a>
-                    </li>
-                    <li>
-                        <a href="/contacto">Contacto</a>
-                    </li>
-                    <li>
-                        <%= link_to "admin", index_admin_path %>
-                    </li>
-
-
-                        <% if cliente_signed_in? %>
-                            <li > 
-                            <%= link_to "Cerrar sesion", destroy_cliente_session_path, method: :delete %> </li>
-
-                        <% else %>
-
-                            <li > 
-                            <%= link_to "Iniciar sesion", new_cliente_session_path %> </li>
-                                                        <li > 
-                            <%= link_to "Registrarme", new_cliente_registration_path %> </li>
+      <ul class="nav navbar-nav">
+	<li>
+	  <a href="/buscar">Buscar</a>
+	</li>
+	<li>
+	  <a href="/contacto">Contacto</a>
+	</li>
+	<li>
+	  <%= link_to "admin", admin_path %>
+	</li>
 
 
+	<% if cliente_signed_in? %>
+	  <li >
+	    <%= link_to "Cerrar sesion", destroy_cliente_session_path, method: :delete %> </li>
 
-                        <% end %>
+	<% else %>
+
+	  <li >
+	    <%= link_to "Iniciar sesion", new_cliente_session_path %> </li>
+	  <li >
+	    <%= link_to "Registrarme", new_cliente_registration_path %> </li>
 
 
-                </ul>
-          
-        </div>
-    </nav>
+
+	<% end %>
+
+
+      </ul>
+
+    </div>
+  </nav>
 
 </body>
-
