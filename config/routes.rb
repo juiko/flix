@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'startup/index'
 
+  resources:admins
   resources:series
   resources:peliculas
   resources:generos

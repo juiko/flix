@@ -1,9 +1,8 @@
 <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">>
-                </button>
+    <nav class="navbar-fixed-top navbar-inverse" >
+        <div class="container-fluid">
+            <div class="navbar-header">
                 <a class="navbar-brand" href="#">Flix</a>
             </div>
 
@@ -15,15 +14,23 @@
                         <a href="/contacto">Contacto</a>
                     </li>
                     <li>
-                        <a href="/perfil">Perfil</a>
+                        <%= link_to "admin", index_admin_path %>
                     </li>
+
 
                         <% if cliente_signed_in? %>
                             <li > 
                             <%= link_to "Cerrar sesion", destroy_cliente_session_path, method: :delete %> </li>
 
                         <% else %>
-                            <li> <% link_to "Iniciar Sesion", new_cliente_session_path%>     </li>
+
+                            <li > 
+                            <%= link_to "Iniciar sesion", new_cliente_session_path %> </li>
+                                                        <li > 
+                            <%= link_to "Registrarme", new_cliente_registration_path %> </li>
+
+
+
                         <% end %>
 
 
