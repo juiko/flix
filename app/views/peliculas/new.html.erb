@@ -1,0 +1,6 @@
+<%= form_for @pelicula, url: {action: "create"}, html: {class: "nifty_form"} do |p| %>
+  <%= p.text_field :nombre %>
+  <%= p.text_area :sinopsis, size: "60x12" %>
+  <%= p.date_field :fecha %>
+  <%= p.submit "Create" %>
+<% end %>
