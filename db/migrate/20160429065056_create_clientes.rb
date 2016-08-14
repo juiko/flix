@@ -3,7 +3,7 @@ class CreateClientes < ActiveRecord::Migration
     create_table :clientes do |t|
       t.string :nombre
       t.integer :telefono
-   	  t.string :password
+      t.string :password
 
       t.timestamps null: false
   end
