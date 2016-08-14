@@ -14,10 +14,4 @@ class ClientesController < ApplicationController
     @cliente.destroy #elimina el objeto de la bd
     redirect_to clientes_path
   end
-
-  private
-
-  def sign_up_params
-    params.require(:cliente).permit(:nombre, :telefono)
-  end
 end
