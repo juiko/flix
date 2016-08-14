@@ -11,7 +11,7 @@ class ClientesController < ApplicationController
 
   def destroy
     @cliente = Cliente.find(params[:id])
-    @cliente.destroy #elimina el objeto de la bd
+    @cliente.destroy 
     redirect_to clientes_path
   end
 end

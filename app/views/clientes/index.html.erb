@@ -1,7 +1,20 @@
-<% @cliente.each do |cliente| %>
-<h1> <%= cliente.nombre %>	</h1>
-<div>
-	<%= cliente.telefono %>
-	<%= cliente.email %>
+
+<div id="resultados">
+
 </div>
-<% end %>
+
+
+     <h2> Buscar Cliente </h2>
+
+     <%= form_tag "/search/create", method: :get, remote: true, id: "search-form" do %>
+
+     <%= text_field_tag :keyword, nil, placeholder: "Buscar Nombre" %>
+     <%= content_tag :button,type: :submit do %>
+     	buscar
+   	<% end %>
+	<% end %>
+
+
+
+
+

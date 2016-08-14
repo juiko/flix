@@ -1,0 +1,32 @@
+<div class="row center-xs">
+  <div class="col-xs-8 col-md-6">
+    <div class="box text-left">
+     <h2> Editar Cliente </h2>
+
+     <%= form_for.error.full.messages.each do |message| %>
+
+	<div class= "field">
+	  <%= f.text_field :nombre, placeholder:"Nombre del Usuario"  , class:"form-control" %>
+	</div>
+
+	<div class= "field">
+	  <%= f.text_field :nombre, placeholder:"Telefono"  , class:"form-control" %>
+	</div>
+
+	<div class= "field">
+	  <%= f.text_field :nombre, placeholder:"Email"  , class:"form-control" %>
+	</div>
+
+
+
+
+	<div class="actions">
+	  <%= f.submit "Editar",class:"btn be-b white" %>
+	</div>
+
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
