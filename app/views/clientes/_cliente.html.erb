@@ -1,9 +1,12 @@
 <div>
 
 	<strong><%= cliente.nombre %></strong>
-	<%= cliente.email%>
 	<%= cliente.telefono%>
+	<%= cliente.email%>
+
 	-
-	<%= link_to "Editar", cliente, style:"clolor:gray;"%>
+	<%= link_to "Editar", edit_cliente_path(@clientes), style:"clolor:blue;"%>
+	<%= link_to "Eliminar", cliente, method: :delete ,style:"clolor:blue;"%>
+
 
 </div>

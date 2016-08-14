@@ -15,3 +15,7 @@ class ClientesController < ApplicationController
     redirect_to clientes_path
   end
 end
+
+def edit
+    @cliente = Cliente.find(params[:id])
+end

@@ -3,8 +3,10 @@
     <div class="box text-left">
      <h2> Editar Cliente </h2>
 
-     <%= form_for.error.full.messages.each do |message| %>
-
+<%= form_for(@cliente.edit) do |f| %>
+	     <%= @cliente.error.full.messages.each do |message| %>
+	     *<%= message%>
+	     <% end %>
 	<div class= "field">
 	  <%= f.text_field :nombre, placeholder:"Nombre del Usuario"  , class:"form-control" %>
 	</div>
