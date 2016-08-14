@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources:series
   resources:peliculas
   resources:generos
-  resources:suscripciones
+  resources:suscripcions
   resources:clientes
   resources:usuarios
   resources:temporadas

@@ -1,3 +1,0 @@
-class SuscripcionesController < ApplicationController
-
-end

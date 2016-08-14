@@ -3,7 +3,7 @@ class CreateSuscripcions < ActiveRecord::Migration
     create_table :suscripcions do |t|
       t.string :nombre
       t.integer :precio
-      t.text :descripcion
+      t.integer :duracion
 
       t.timestamps null: false
     end

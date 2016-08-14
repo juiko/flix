@@ -1,0 +1,27 @@
+<div class="row center-xs">
+	<div class="col-xs-8 col-md-6">
+		<div class="box text-left">
+
+		 	<div class="tcenter">
+				<h2>Crear Suscripcion</h2>
+			</div>
+			<%= form_for @suscripcion do |f| %>
+			<div class="field">
+				<%= f.text_field :nombre, placeholder: "Nombre Suscripcion", class:"form-control"%>
+			</div>
+			<div class="field">
+				<%= f.text_field :precio, placeholder: "Precio Suscripcion", class:"form-control"%>
+			</div>
+
+			<div class="field">
+				<%= f.text_field :duracion, placeholder: "Duracion", class:"form-control"%>
+					
+			</div>
+
+	      <div class="acctions">
+	        <%= f.submit "Registrar Suscripcion",class:"btn be-b white" %>
+	      </div>
+		<% end %>
+		</div>
+	</div>
+</div>
