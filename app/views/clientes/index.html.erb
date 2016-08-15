@@ -1,27 +1,26 @@
-
 <div class="row center-xs">
   <div class="col-xs-12 col-md-8">
     <div class="box text-left">
 
 
 
-<div>
-<h2> Buscar Cliente </h2>
+      <div>
+	<h2> Buscar Cliente </h2>
 
-     <%= form_tag "/search/create", method: :get, remote: true, id: "search-form" do %>
+	<%= form_tag "/search/create", method: :get, remote: true, id: "search-form" do %>
 
-     <%= text_field_tag :keyword, nil, placeholder: "Buscar Nombre" %>
-     <%= content_tag :button,type: :submit do %>
-     	buscar
-   	<% end %>
+	  <%= text_field_tag :keyword, nil, placeholder: "Buscar Nombre" %>
+	  <%= content_tag :button,type: :submit do %>
+	    buscar
+	  <% end %>
 	<% end %>
-<p></p>
-</div>
-    
+	<p></p>
+      </div>
 
-<div id="resultados">
 
-</div>
+      <div id="resultados">
+
+      </div>
 
 
 

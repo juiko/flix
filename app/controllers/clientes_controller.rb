@@ -2,7 +2,7 @@
 class ClientesController < ApplicationController
 
   def index
-    @cliente = Cliente.all
+    @clientes = Cliente.all
   end
 
   def show
@@ -11,11 +11,12 @@ class ClientesController < ApplicationController
 
   def destroy
     @cliente = Cliente.find(params[:id])
-    @cliente.destroy 
+    @cliente.destroy
     redirect_to clientes_path
   end
-end
 
-def edit
+  def edit
     @cliente = Cliente.find(params[:id])
+  end
+
 end
