@@ -1,8 +1,8 @@
 class SearchController < ApplicationController
 
-  def create
+  def client
     palabra = "%#{params[:keyword]}%"
-    @clientes = Cliente.where("nombre LIKE ? or email LIKE ?", palabra, palabra)
+    @clientes = Suscripcion.where("nombre LIKE ? or email LIKE ?", palabra, palabra)
 
 
     respond_to do |format|
@@ -11,4 +11,17 @@ class SearchController < ApplicationController
       format.js
     end
   end
+
+  def suscrip
+    palabra = "%#{params[:keyword]}%"
+    @suscripcions = Suscripcion.where("nombre LIKE ? or precio LIKE ? or duracion LIKE ?", palabra, palabra, palabra)
+
+
+    respond_to do |format|
+      format.html{ redirect_to suscripcions_path}
+      format.json{ render json: @suscripcions}
+      format.js
+    end
+  end
+
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160814003638) do
+ActiveRecord::Schema.define(version: 20160811221108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20160814003638) do
 
   create_table "clientes", force: :cascade do |t|
     t.string   "nombre"
-    t.string   "telefono"
+    t.integer  "telefono"
     t.string   "password"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160814003638) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.integer  "permission_level"
   end
 
   create_table "compras", force: :cascade do |t|
@@ -89,16 +90,6 @@ ActiveRecord::Schema.define(version: 20160814003638) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "peliculas_clientes", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "cliente_id"
-    t.integer  "pelicula_id"
-  end
-
-  add_index "peliculas_clientes", ["cliente_id"], name: "index_peliculas_clientes_on_cliente_id", using: :btree
-  add_index "peliculas_clientes", ["pelicula_id"], name: "index_peliculas_clientes_on_pelicula_id", using: :btree
-
   create_table "peliculas_usuarios", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -123,16 +114,6 @@ ActiveRecord::Schema.define(version: 20160814003638) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "series_clientes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "cliente_id"
-    t.integer  "series_id"
-  end
-
-  add_index "series_clientes", ["cliente_id"], name: "index_series_clientes_on_cliente_id", using: :btree
-  add_index "series_clientes", ["series_id"], name: "index_series_clientes_on_series_id", using: :btree
-
   create_table "series_usuarios", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -146,10 +127,9 @@ ActiveRecord::Schema.define(version: 20160814003638) do
   create_table "suscripcions", force: :cascade do |t|
     t.string   "nombre"
     t.integer  "precio"
-    t.text     "descripcion"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.integer  "duracion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "temporadas", force: :cascade do |t|

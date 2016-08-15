@@ -19,4 +19,5 @@ class ClientesController < ApplicationController
     @cliente = Cliente.find(params[:id])
   end
 
+
 end

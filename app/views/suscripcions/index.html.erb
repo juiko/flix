@@ -1,7 +1,31 @@
-<% @suscripcion.each do |suscripcion| %>
-	<h3> <%= @suscripcion.nombre %>	</h3>
-	<div>
-		<%= @suscripcion.precio %>
-		<%= @suscripcion.duracion %>
-	</div>
-<% end %>
+<div class="row center-xs">
+  <div class="col-xs-12 col-md-8">
+    <div class="box text-left">
+
+
+
+      <div>
+	<h2> Buscar Suscripcion </h2>
+
+	<%= form_tag "/search/suscrip", method: :get, remote: true, id: "search-form" do %>
+
+	  <%= text_field_tag :keyword, nil, placeholder: "Buscar suscripcion" %>
+	  <%= content_tag :button,type: :submit do %>
+	    buscar
+	  <% end %>
+	<% end %>
+	<p></p>
+      </div>
+
+
+      <div id="resultados">
+
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>
