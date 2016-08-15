@@ -6,6 +6,7 @@ class ClientesController < ApplicationController
   end
 
   def show
+    authorize! :update, @cliente
     @cliente = Cliente.find(params[:id])
   end
 
