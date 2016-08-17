@@ -14,9 +14,11 @@
 	<li>
 	  <a href="/contacto">Contacto</a>
 	</li>
-	<li>
-	  <%= link_to "Admin", admins_path, id: 0 %>
-	</li>
+	<% if current_cliente.try(:admin?) %>
+	  <li>
+	    <%= link_to "Admin", admins_path, id: 0 %>
+	  </li>
+	<% end %>
 
 
 	<% if cliente_signed_in? %>
