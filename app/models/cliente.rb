@@ -5,7 +5,7 @@ class Cliente < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 def admin?
-    admin
+    nombre == 'admin'
 end
 
 has_one :compra
