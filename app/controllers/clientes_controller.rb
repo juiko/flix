@@ -1,7 +1,7 @@
 # coding: utf-8
 class ClientesController < ApplicationController
 
-  before_action :validate_cliente!
+  before_action :authenticate_cliente!
 
   def index
     @clientes = Cliente.all

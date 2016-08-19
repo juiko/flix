@@ -2,7 +2,7 @@ class SearchController < ApplicationController
 
   def client
     palabra = "%#{params[:keyword]}%"
-    @clientes = Suscripcion.where("nombre LIKE ? or email LIKE ?", palabra, palabra)
+    @clientes = Cliente.where("nombre LIKE ? or email LIKE ?", palabra, palabra)
 
 
     respond_to do |format|
