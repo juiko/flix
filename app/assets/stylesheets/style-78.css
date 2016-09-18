@@ -1,8 +1,9 @@
+/*
 /************************
 Designed by : http://responsivewebinc.com
 ************************/
 /* Open Sans  */
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600');
+/* @import url('http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600'); */
 /* General */
 body {
 	color: #666666;
@@ -476,7 +477,7 @@ hr {
 	-moz-transition: all 1s ease;
 	-o-transition: all 1s ease;
 	-ms-transition: all 1s ease;
-	transition: all 1s ease;	
+	transition: all 1s ease;
 	box-shadow:inset 0px 2px 1px 1px rgba(0,0,0,0.1);
 }
 .ui-78 .l-item a:hover{
@@ -487,7 +488,7 @@ hr {
 	font-size:40px;
 	line-height:40px;
 	font-weight:300;
-}	
+}
 .ui-78 .l-item a i{
 	float:right;
 	font-size:50px;
@@ -516,3 +517,4 @@ hr {
 		line-height:15px;
 	}
 }
+*/

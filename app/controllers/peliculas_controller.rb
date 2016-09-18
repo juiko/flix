@@ -1,4 +1,6 @@
 class PeliculasController < ApplicationController
+  before_action :authenticate_cliente!
+
   def new
     @pelicula = Pelicula.new
   end
