@@ -7,7 +7,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-peliculas = [{nombre: 'Gremlins',
+peliculas = [{nombre: '10 Clovefield Lane',
+              fecha: Time.new(2016),
+              sinopsis: '???',
+              ruta_archivo: 'videos/peliculas710.mkv'},
+  {nombre: 'Gremlins',
               fecha: Time.new(1984),
               sinopsis: 'A small town is besieged by some furry and not-so-cute little creatures after a young man ignores the warnings of a wise elder regarding their care and feeding'},
 
