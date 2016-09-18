@@ -1,9 +1,9 @@
-
+/*  */
 body {
     padding-top: 70px; 
 }
 
-.btn{
+.btn {
 	background-color: inherit;
 	border: none;
 	outline: none;
@@ -13,7 +13,7 @@ body {
 	padding: 10px 12px;
 }
 
-.field,top-space,.acction{
+.field,top-space,.acction {
 	margin-top: 1em;
 }
 
