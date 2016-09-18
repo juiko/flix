@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :clientes, :controllers => { registrations: 'registrations' }
+  root 'flix#index'
 
-  get 'startup/index'
+  devise_for :clientes, :controllers => { registrations: 'registrations' }
 
   resources:admins
   resources:series
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'startup#index'
+  # root 'startup#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
