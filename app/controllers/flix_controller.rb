@@ -1,4 +1,6 @@
 class FlixController < ApplicationController
+  before_action :authenticate_cliente!
+
   def index
     peliculas = Pelicula.first(10)
     series = Serie.first(10)
