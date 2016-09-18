@@ -80,3 +80,6 @@ test:
 #
 production:
   <<: *default
+
+  username: <%= ENV['FLIX_DB_USER'] %>
+  password: <%= ENV['FLIX_DB_PASSWORD'] %>
