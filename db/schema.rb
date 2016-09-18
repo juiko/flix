@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815225731) do
+ActiveRecord::Schema.define(version: 20160811221108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,19 +29,19 @@ ActiveRecord::Schema.define(version: 20160815225731) do
     t.string   "nombre"
     t.integer  "telefono"
     t.string   "password"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.boolean  "admin",                  default: false
+    t.boolean  "admin"
   end
 
   create_table "compras", force: :cascade do |t|
@@ -86,10 +86,8 @@ ActiveRecord::Schema.define(version: 20160815225731) do
     t.string   "nombre"
     t.text     "sinopsis"
     t.date     "fecha"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "image_file_name"
-    t.integer  "image_file_size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "peliculas_usuarios", force: :cascade do |t|
@@ -112,10 +110,8 @@ ActiveRecord::Schema.define(version: 20160815225731) do
   create_table "series", force: :cascade do |t|
     t.string   "nombre"
     t.text     "sinopsis"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "image_file_name"
-    t.integer  "image_file_size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "series_usuarios", force: :cascade do |t|
