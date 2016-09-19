@@ -2,12 +2,15 @@
 <html>
 
   <head>
-    <title>Flix</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
+    <title>
+      Flix
+    </title>
 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+    <%= csrf_meta_tags %>
   </head>
+
   <body>
 
     <%= render "partials/navigation" %>
@@ -16,17 +19,19 @@
       <% if notice %>
 	<div class="alert alert-info">
 	  <%= notice %>
-	  </div>
+	</div>
       <% end %>
 
       <% if alert %>
 	<div class="alert alert-danger">
 	  <%= alert %>
-	  </div>
+	</div>
       <% end %>
 
       <%= yield %>
     </div>
 
   </body>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </html>
