@@ -9,9 +9,9 @@ class PeliculasController < ApplicationController
     @pelicula = Pelicula.new(pelicula_params)
 
     if @pelicula.save
-      redirect_to '/peliculas/' + @pelicula.id.to_s
+      redirect_to url_for('index', @pelicula)
     else
-      redirect_to url_for 'new'
+      redirect_to url_for('new')
     end
   end
 
@@ -20,6 +20,7 @@ class PeliculasController < ApplicationController
   end
 
   def index
+    @contenido = Pelicula.all
   end
 
   def edit

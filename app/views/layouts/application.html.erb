@@ -7,6 +7,7 @@
     </title>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
     <%= csrf_meta_tags %>
   </head>
@@ -15,23 +16,24 @@
 
     <%= render "partials/navigation" %>
 
-    <div class="container">
-      <% if notice %>
-	<div class="alert alert-info">
-	  <%= notice %>
-	</div>
-      <% end %>
+    <div align="center">
+      <div class="container">
+	<% if notice %>
+	  <div class="alert alert-info">
+	    <%= notice %>
+	  </div>
+	<% end %>
 
-      <% if alert %>
-	<div class="alert alert-danger">
-	  <%= alert %>
-	</div>
-      <% end %>
+	<% if alert %>
+	  <div class="alert alert-danger">
+	    <%= alert %>
+	  </div>
+	<% end %>
 
-      <%= yield %>
+	<%= yield %>
+      </div>
     </div>
 
   </body>
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-</html>
+  </html>
