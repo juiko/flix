@@ -1,6 +1,6 @@
 class CreateShowsGenres < ActiveRecord::Migration
   def change
-    create_table :genres_shows do |t|
+    create_table :genres_shows, id: false do |t|
       t.integer :show_id
       t.integer :genre_id
     end

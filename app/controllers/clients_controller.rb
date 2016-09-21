@@ -1,26 +1,25 @@
 # coding: utf-8
-class ClientesController < ApplicationController
+class ClientsController < ApplicationController
 
   before_action :authenticate_cliente!
 
   def index
-    @clientes = Cliente.all
+    @clientes = Client.all
   end
 
   def show
     authorize! :update, @cliente
-    @cliente = Cliente.find(params[:id])
+    @cliente = Client.find(params[:id])
   end
 
   def destroy
-    @cliente = Cliente.find(params[:id])
+    @cliente = Client.find(params[:id])
     @cliente.destroy
     redirect_to clientes_path
   end
 
   def edit
-    @cliente = Cliente.find(params[:id])
+    @cliente = Client.find(params[:id])
   end
-
 
 end

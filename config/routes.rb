@@ -1,22 +1,31 @@
 Rails.application.routes.draw do
-
   root 'flix#index'
 
-  devise_for :clientes, :controllers => { registrations: 'registrations' }
+  devise_for :clients
 
-  resources:admins
-  resources:series
-  resources:peliculas
-  resources:generos
-  resources:suscripcions
-  resources:clientes
-  resources:usuarios
-  resources:temporadas
-  resources:capitulos
-  resources:compras
+  resources:users
+  resources:genres
+  resources:suscriptions
+  resources:seasons
+  resources:episodes
+  resources:movies
+  resources:shows
 
-  get 'search/client'
-  get 'search/suscrip'
+  # devise_for :clientes, :controllers => { registrations: 'registrations' }
+
+  # resources:admins
+  # resources:series
+  # resources:peliculas
+  # resources:generos
+  # resources:suscripcions
+  # resources:clientes
+  # resources:usuarios
+  # resources:temporadas
+  # resources:capitulos
+  # resources:compras
+
+  # get 'search/client'
+  # get 'search/suscrip'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

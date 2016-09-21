@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921171425) do
+ActiveRecord::Schema.define(version: 20160921212301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 20160921171425) do
 
   add_index "episodes", ["season_id"], name: "index_episodes_on_season_id", using: :btree
 
+  create_table "episodes_users", id: false, force: :cascade do |t|
+    t.integer "episode_id"
+    t.integer "user_id"
+  end
+
+  add_index "episodes_users", ["episode_id"], name: "index_episodes_users_on_episode_id", using: :btree
+  add_index "episodes_users", ["user_id"], name: "index_episodes_users_on_user_id", using: :btree
+
   create_table "genres", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
@@ -59,7 +67,7 @@ ActiveRecord::Schema.define(version: 20160921171425) do
   add_index "genres_movies", ["genre_id"], name: "index_genres_movies_on_genre_id", using: :btree
   add_index "genres_movies", ["movie_id"], name: "index_genres_movies_on_movie_id", using: :btree
 
-  create_table "genres_shows", force: :cascade do |t|
+  create_table "genres_shows", id: false, force: :cascade do |t|
     t.integer "show_id"
     t.integer "genre_id"
   end
@@ -74,6 +82,14 @@ ActiveRecord::Schema.define(version: 20160921171425) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "movies_users", id: false, force: :cascade do |t|
+    t.integer "movie_id"
+    t.integer "user_id"
+  end
+
+  add_index "movies_users", ["movie_id"], name: "index_movies_users_on_movie_id", using: :btree
+  add_index "movies_users", ["user_id"], name: "index_movies_users_on_user_id", using: :btree
 
   create_table "seasons", force: :cascade do |t|
     t.integer  "number"

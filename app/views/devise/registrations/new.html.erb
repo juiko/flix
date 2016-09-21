@@ -7,13 +7,13 @@
 	<%= devise_error_messages! %>
 
 	<div class= "field">
-	  <%= f.label :nombre, "Nombre del Usuario *" %><br />
-	  <%= f.text_field :nombre, autofocus: true, class:"form-control" %>
+	  <%= f.label :name, "Nombre del Usuario *" %><br />
+	  <%= f.text_field :name, autofocus: true, class:"form-control" %>
 	</div>
 
 	<div class= "field">
-	  <%= f.label :telefono, "Telefono " %><br />
-	  <%= f.text_field :telefono, autofocus: true, class:"form-control" %>
+	  <%= f.label :phone, "Telefono " %><br />
+	  <%= f.text_field :phone, autofocus: true, class:"form-control" %>
 	</div>
 
 	<div class= "field">
@@ -31,9 +31,11 @@
 	</div>
 
 	<div class="field">
-	  <%= f.label :password_confirmation, "confirmar contraseña *" %><br />
+	  <%= f.label :password_confirmation, "Confirmar contraseña *" %><br />
 	  <%= f.password_field :password_confirmation, autocomplete:"off", class:"form-control" %>
 	</div>
+
+	<br>
 
 	<div class="actions">
 	  <%= f.submit "Registrarse",class:"btn be-b white" %>
@@ -41,10 +43,10 @@
 
       <% end %>
 
-      <div class="actions">
-	<%= render "devise/shared/links"%>
-      </div>
-
+      <!-- <div class="actions">
+	   <%= render "devise/shared/links"%>
+	   </div>
+	 -->
     </div>
   </div>
 </div>

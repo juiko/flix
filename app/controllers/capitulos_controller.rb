@@ -1,3 +1,0 @@
-class CapitulosController < ApplicationController
-
-end

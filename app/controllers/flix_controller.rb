@@ -1,7 +1,7 @@
 class FlixController < ApplicationController
   def index
-    peliculas = Pelicula.first(10)
-    series = Serie.first(10)
+    peliculas = Movie.first(10)
+    series = Show.first(10)
 
     @contenido = Array.new
     @contenido.concat peliculas

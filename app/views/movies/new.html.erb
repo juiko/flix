@@ -1,0 +1,16 @@
+<h1>
+  Crear Pelicula
+</h1>
+
+<%= bootstrap_form_for @pelicula do |p| %>
+
+  <%= p.text_field :title, label: "Nombre" %>
+
+
+  <%= p.text_area :synopsis, size: "60x12" %>
+
+  <%= p.date_field :date %>
+
+
+  <%= p.submit "Create" %>
+<% end %>
