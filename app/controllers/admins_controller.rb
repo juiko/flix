@@ -1,14 +1,14 @@
 class AdminsController < ApplicationController
-  before_action :authenticate_cliente!
+  before_action :authenticate_client!
 
 
   def index
     #get   select alll
-    @admin = Cliente.all
+    @admin = Client.all
   end
 
   def show
-    @admin = Cliente.find(params[:id])
+    @admin = Client.find(params[:id])
   end
 
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources:users
   resources:genres
-  resources:suscriptions
+  resources:subscriptions
   resources:seasons
   resources:episodes
   resources:movies

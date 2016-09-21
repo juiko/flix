@@ -1,6 +1,6 @@
-class CreateSuscriptions < ActiveRecord::Migration
+class CreateSubscriptions < ActiveRecord::Migration
   def change
-    create_table :suscriptions do |t|
+    create_table :subscriptions do |t|
       t.integer :price
       t.integer :duration
       t.datetime :date

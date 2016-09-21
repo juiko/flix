@@ -2,12 +2,12 @@ class SearchController < ApplicationController
 
   def client
     palabra = "%#{params[:keyword]}%"
-    @clientes = Cliente.where("nombre LIKE ? or email LIKE ?", palabra, palabra)
+    @clients = Client.where("nombre LIKE ? or email LIKE ?", palabra, palabra)
 
 
     respond_to do |format|
-      format.html{ redirect_to clientes_path}
-      format.json{ render json: @clientes}
+      format.html{ redirect_to clients_path}
+      format.json{ render json: @clients}
       format.js
     end
   end
