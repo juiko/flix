@@ -24,6 +24,8 @@ def create_peasant!
 end
 
 puts 'Cleaning database'
+MovieVote.all.each(&:destroy)
+ShowVote.all.each(&:destroy)
 User.all.each(&:destroy)
 Client.all.each(&:destroy)
 Movie.all.each(&:destroy)
@@ -83,11 +85,25 @@ puts 'Creating clients and users'
     user = User.create! name: FFaker::Name.name, client: client
 
     rand(25).times do
-      user.movies << Movie.order('Random()').first
+      movie = Movie.order('Random()').first
+      user.movies << movie
+
+      if FFaker::Boolean.maybe
+        MovieVote.create! user: user,
+                          movie: movie,
+                          rating: Random.rand(5)
+      end
     end
 
     rand(25).times do
-      user.episodes << Episode.order('Random()').first
+      episode = Episode.order('Random()').first
+      user.episodes << episode
+
+      if FFaker::Boolean.maybe
+        ShowVote.create! user: user,
+                         show: episode.season.show,
+                         rating: Random.rand(5)
+      end
     end
   end
 end

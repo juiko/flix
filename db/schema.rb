@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921212301) do
+ActiveRecord::Schema.define(version: 20160922215942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,17 @@ ActiveRecord::Schema.define(version: 20160921212301) do
   add_index "genres_shows", ["genre_id"], name: "index_genres_shows_on_genre_id", using: :btree
   add_index "genres_shows", ["show_id"], name: "index_genres_shows_on_show_id", using: :btree
 
+  create_table "movie_votes", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "rating"
+  end
+
+  add_index "movie_votes", ["movie_id"], name: "index_movie_votes_on_movie_id", using: :btree
+  add_index "movie_votes", ["user_id"], name: "index_movie_votes_on_user_id", using: :btree
+
   create_table "movies", force: :cascade do |t|
     t.string   "title"
     t.text     "synopsis"
@@ -100,12 +111,31 @@ ActiveRecord::Schema.define(version: 20160921212301) do
 
   add_index "seasons", ["show_id"], name: "index_seasons_on_show_id", using: :btree
 
+  create_table "show_votes", force: :cascade do |t|
+    t.integer  "show_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "rating"
+  end
+
+  add_index "show_votes", ["show_id"], name: "index_show_votes_on_show_id", using: :btree
+  add_index "show_votes", ["user_id"], name: "index_show_votes_on_user_id", using: :btree
+
   create_table "shows", force: :cascade do |t|
     t.string   "title"
     t.text     "synopsis"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "shows_users", id: false, force: :cascade do |t|
+    t.integer "show_id"
+    t.integer "user_id"
+  end
+
+  add_index "shows_users", ["show_id"], name: "index_shows_users_on_show_id", using: :btree
+  add_index "shows_users", ["user_id"], name: "index_shows_users_on_user_id", using: :btree
 
   create_table "suscriptions", force: :cascade do |t|
     t.integer  "price"
@@ -128,7 +158,11 @@ ActiveRecord::Schema.define(version: 20160921212301) do
   add_index "users", ["client_id"], name: "index_users_on_client_id", using: :btree
 
   add_foreign_key "episodes", "seasons"
+  add_foreign_key "movie_votes", "movies"
+  add_foreign_key "movie_votes", "users"
   add_foreign_key "seasons", "shows"
+  add_foreign_key "show_votes", "shows"
+  add_foreign_key "show_votes", "users"
   add_foreign_key "suscriptions", "clients"
   add_foreign_key "users", "clients"
 end
