@@ -7,6 +7,6 @@ module Votable
   end
 
   def rating
-    votes.average('rating')
+    votes.average('rating').to_i
   end
 end

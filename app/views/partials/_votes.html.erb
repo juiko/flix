@@ -1,0 +1,9 @@
+<p>
+  <% votable.rating.times do %>
+    <span class="glyphicon glyphicon-star"></span>
+  <% end %>
+
+  <% (5 - votable.rating).times do %>
+    <span class="glyphicon glyphicon-star-empty"></span>
+  <% end %>
+</p>
