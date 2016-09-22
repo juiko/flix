@@ -1,22 +1,22 @@
 class SubscriptionsController < ApplicationController
   def index
-    @suscripcion = Subscription.all
+    @subscription = Subscription.all
   end
 
   def show
     authorize! :update, @client
-    @suscripcion = Subscription.find(params[:id])
+    @subscription = Subscription.find(params[:id])
   end
 
   def new
-    @suscripcion = Subscription.new
+    @subscription = Subscription.new
   end
 
   def create
-    @suscripcion = Subscription.new(nombre: params[:suscripcion][:nombre],
-                                   precio: params[:suscripcion][:precio],
-                                   duracion: params[:suscripcion][:duracion])
-    if @suscripcion.save
+    @subscription = Subscription.new(name: params[:subscription][:name],
+                                    price: params[:subscription][:price],
+                                    duration: params[:subscription][:duration])
+    if @subscription.save
       redirect_to admins_path, id: 0
     else
       render :new
@@ -24,8 +24,8 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
-    @suscripcion = Subscription.find(params[:id])
-    @suscripcion.destroy
+    @subscription = Subscription.find(params[:id])
+    @subscription.destroy
     redirect_to clients_path
   end
 end

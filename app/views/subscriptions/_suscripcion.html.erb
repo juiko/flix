@@ -1,12 +1,13 @@
 <div>
 
-  <strong><%= suscripcion.nombre %></strong>
-  <%= suscripcion.precio%>
-  <%= suscripcion.duracion%>
+  <strong><%= subscription
+ame %></strong>
+  <%= subscription.price%>
+  <%= subscription.duracion%>
 
   -
-  <%= link_to "Editar", edit_suscripcion_path(suscripcion), style:"clolor:blue;"%>
-  <%= link_to "Eliminar", suscripcion, method: :delete ,style:"clolor:blue;"%>
+  <%= link_to "Editar", edit_subscription_path(subscription), style:"clolor:blue;"%>
+  <%= link_to "Eliminar", subscription, method: :delete ,style:"clolor:blue;"%>
 
 
 </div>

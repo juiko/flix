@@ -5,11 +5,11 @@
 
 
       <div>
-	<h2> Buscar Suscripcion </h2>
+	<h2> Buscar Subscription </h2>
 
 	<%= form_tag "/search/suscrip", method: :get, remote: true, id: "search-form" do %>
 
-	  <%= text_field_tag :keyword, nil, placeholder: "Buscar suscripcion" %>
+	  <%= text_field_tag :keyword, nil, placeholder: "Buscar subscription" %>
 	  <%= content_tag :button,type: :submit do %>
 	    buscar
 	  <% end %>

@@ -3,7 +3,7 @@ class FlixController < ApplicationController
     peliculas = Movie.first(10)
     series = Show.first(10)
 
-    @contenido = Array.new
+    @contenido = []
     @contenido.concat peliculas
     @contenido.concat series
 

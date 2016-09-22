@@ -2,7 +2,7 @@ class SearchController < ApplicationController
 
   def client
     palabra = "%#{params[:keyword]}%"
-    @clients = Client.where("nombre LIKE ? or email LIKE ?", palabra, palabra)
+    @clients = Client.where("name LIKE ? or email LIKE ?", palabra, palabra)
 
 
     respond_to do |format|
@@ -14,12 +14,12 @@ class SearchController < ApplicationController
 
   def suscrip
     palabra = "%#{params[:keyword]}%"
-    @suscripcions = Suscripcion.where("nombre LIKE ? or precio LIKE ? or duracion LIKE ?", palabra, palabra, palabra)
+    @subscriptions = Subscription.where("name LIKE ? or price LIKE ? or duration LIKE ?", palabra, palabra, palabra)
 
 
     respond_to do |format|
-      format.html{ redirect_to suscripcions_path}
-      format.json{ render json: @suscripcions}
+      format.html{ redirect_to subscriptions_path}
+      format.json{ render json: @subscriptions}
       format.js
     end
   end

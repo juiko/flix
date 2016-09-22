@@ -6,14 +6,10 @@
 
       <div class="caption">
 	<h4 class="pull-right">
-	  <% if weaita.is_a? Pelicula %>
-	    Pelicula
-	  <% else %>
-	    Serie
-	  <% end %>
+	  <%= weaita.klass %>
 	</h4>
 	<h4>
-	  <%= link_to weaita.nombre, weaita %>
+	  <%= link_to weaita.normalized_title, weaita %>
 	</h4>
       </div>
       <div class="ratings">

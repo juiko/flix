@@ -11,22 +11,6 @@ Rails.application.routes.draw do
   resources:movies
   resources:shows
 
-  # devise_for :clientes, :controllers => { registrations: 'registrations' }
-
-  # resources:admins
-  # resources:series
-  # resources:peliculas
-  # resources:generos
-  # resources:suscripcions
-  # resources:clientes
-  # resources:usuarios
-  # resources:temporadas
-  # resources:capitulos
-  # resources:compras
-
-  # get 'search/client'
-  # get 'search/suscrip'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
