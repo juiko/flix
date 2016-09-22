@@ -10,12 +10,15 @@
 	<%= link_to content.normalized_title, content %>
       </h4>
     </div>
-    <div class="ratings">
 
+    <div id="content-image">
+      <img src="images/question_mark.jpeg" width="200" heigth="300">
+    </div>
+
+    <div class="ratings">
       <p class="pull-right">15 reviews</p>
 
       <%= render 'partials/votes', votable: content %>
-
     </div>
   </div>
 </div>
