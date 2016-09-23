@@ -91,7 +91,7 @@ puts 'Creating clients and users'
       if FFaker::Boolean.maybe
         MovieVote.create! user: user,
                           movie: movie,
-                          rating: Random.rand(5)
+                          rating: Random.rand(4) + 1
       end
     end
 
@@ -102,7 +102,7 @@ puts 'Creating clients and users'
       if FFaker::Boolean.maybe
         ShowVote.create! user: user,
                          show: episode.season.show,
-                         rating: Random.rand(5)
+                         rating: Random.rand(4) + 1
       end
     end
   end
