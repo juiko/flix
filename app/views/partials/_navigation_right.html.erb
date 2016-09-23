@@ -1,0 +1,13 @@
+<% if not client_signed_in? %>
+<li>
+  <%= link_to "Registrarme", new_client_registration_path %>
+  </li>
+
+  <li>
+    <%= link_to "Iniciar sesion", new_client_session_path %>
+    </li>
+    <% else %>
+    <li >
+      <%= link_to "Cerrar sesion", destroy_client_session_path, method: :delete %>
+      </li>
+<% end %>

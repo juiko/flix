@@ -1,65 +1,16 @@
-<body>
-
-  <nav class="navbar-fixed-top navbar-inverse" >
-    <div class="container-fluid">
-      <div class="navbar-header">
-	<%= link_to 'Flix', root_url, class: 'navbar-brand' %>
-      </div>
-
-
-      <ul class="nav navbar-nav">
-	<% if client_signed_in? %>
-	  <li class="dropdown">
-	    <a href="#"
-	       class="dropdown-toggle"
-	       data-toggle="dropdown"
-	       role="button"
-	       aria-haspopup="true"
-	       aria-expanded="false">
-	      Contenido
-	      <span class="caret">
-	      </span>
-	    </a>
-	    <ul class="dropdown-menu">
-	      <li><%= link_to 'Todo', root_url %></li>
-	      <li><%= link_to 'Series', shows_url %></li>
-	      <li><%= link_to 'Peliculas', movies_url %></li>
-	    </ul>
-	<% end %>
-	  </li>
-
-
-	  <% if client_signed_in? %>
-	    <li>
-	      <a href="/buscar">Buscar</a>
-	    </li>
-	  <% end %>
-
-
-	  <% if current_client.try(:admin?) %>
-	    <li>
-	      <%= link_to "Admin", admins_path, id: 0 %>
-	    </li>
-	  <% end %>
-
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-	<% if not client_signed_in? %>
-	  <li>
-	    <%= link_to "Registrarme", new_client_registration_path %>
-	  </li>
-
-	  <li>
-	    <%= link_to "Iniciar sesion", new_client_session_path %>
-	  </li>
-	<% else %>
-	  <li >
-	    <%= link_to "Cerrar sesion", destroy_client_session_path, method: :delete %>
-	  </li>
-	<% end %>
-      </ul>
+<nav class="navbar-fixed-top navbar-inverse" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to 'Flix', root_url, class: 'navbar-brand' %>
     </div>
-  </nav>
 
-</body>
+
+    <ul class="nav navbar-nav navbar-left">
+      <%= render 'partials/navigation_left' %>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <%= render 'partials/navigation_right' %>
+    </ul>
+  </div>
+</nav>
