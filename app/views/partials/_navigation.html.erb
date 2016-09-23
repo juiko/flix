@@ -8,17 +8,6 @@
 
 
       <ul class="nav navbar-nav">
-	<% if not client_signed_in? %>
-	  <li>
-	    <%= link_to "Iniciar sesion", new_client_session_path %>
-	  </li>
-
-	  <li>
-	    <%= link_to "Registrarme", new_client_registration_path %>
-	  </li>
-
-	<% end %>
-
 	<% if client_signed_in? %>
 	  <li class="dropdown">
 	    <a href="#"
@@ -53,19 +42,23 @@
 	    </li>
 	  <% end %>
 
-
-	  <% if client_signed_in? %>
-	    <li >
-	      <%= link_to "Cerrar sesion", destroy_client_session_path, method: :delete %>
-	    </li>
-	  <% end %>
-
-	  <li>
-	    <a href="/contacto">Contacto</a>
-	  </li>
-
       </ul>
 
+      <ul class="nav navbar-nav navbar-right">
+	<% if not client_signed_in? %>
+	  <li>
+	    <%= link_to "Registrarme", new_client_registration_path %>
+	  </li>
+
+	  <li>
+	    <%= link_to "Iniciar sesion", new_client_session_path %>
+	  </li>
+	<% else %>
+	  <li >
+	    <%= link_to "Cerrar sesion", destroy_client_session_path, method: :delete %>
+	  </li>
+	<% end %>
+      </ul>
     </div>
   </nav>
 
