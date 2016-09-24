@@ -79,16 +79,11 @@ ActiveRecord::Schema.define(version: 20160924043341) do
 
   create_table "episodes", force: :cascade do |t|
     t.integer  "season_id"
-<<<<<<< HEAD
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "path",       default: "notfound.mp4", null: false
     t.integer  "number"
     t.string   "title"
-=======
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
->>>>>>> 270bc123d060fce7e582d9016344eaeb73113bab
   end
 
   add_index "episodes", ["season_id"], name: "index_episodes_on_season_id", using: :btree
@@ -164,8 +159,9 @@ ActiveRecord::Schema.define(version: 20160924043341) do
     t.string   "title"
     t.text     "synopsis"
     t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "path",       default: "notfound.mp4", null: false
   end
 
   create_table "movies_users", id: false, force: :cascade do |t|
