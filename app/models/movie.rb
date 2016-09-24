@@ -13,6 +13,7 @@ class Movie < ActiveRecord::Base
   def similar
     Movie
       .joins(:genres)
+      .uniq
       .where.not(id: id)
       .limit(10)
   end
