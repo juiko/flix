@@ -9,4 +9,11 @@ class Movie < ActiveRecord::Base
   def klass
     'Pelicula'
   end
+
+  def similar
+    Movie
+      .joins(:genres)
+      .where.not(id: id)
+      .limit(10)
+  end
 end

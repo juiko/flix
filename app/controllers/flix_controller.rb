@@ -9,4 +9,7 @@ class FlixController < ApplicationController
 
     @contenido.shuffle!
   end
+
+  def search
+  end
 end
