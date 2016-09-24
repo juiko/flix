@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'flix#index'
 
+  get '/search/', to: 'flix#search', as: 'search_content'
+
   devise_for :clients
 
   resources:users
