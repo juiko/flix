@@ -7,7 +7,7 @@
       <div>
 		<h2> Buscar Client </h2>
 
-		<%= form_tag "/search/client", method: :get, remote: true, id: "search-form" do %>
+		<%= form_tag "/search/clients", method: :get, remote: true, id: "search-form" do %>
 
 		  <%= text_field_tag :keyword, nil, placeholder: "Buscar Nombre" %>
 		  <%= content_tag :button,type: :submit do %>
