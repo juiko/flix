@@ -1,6 +1,5 @@
 class SearchController < ApplicationController
-
-  def client
+  def clients
     palabra = "%#{params[:keyword]}%"
     @clients = Client.where("name LIKE ? or email LIKE ?", palabra, palabra)
 
