@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160924003019) do
+ActiveRecord::Schema.define(version: 20160922215942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,9 +79,8 @@ ActiveRecord::Schema.define(version: 20160924003019) do
 
   create_table "episodes", force: :cascade do |t|
     t.integer  "season_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "path",       default: "notfound.mp4", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "episodes", ["season_id"], name: "index_episodes_on_season_id", using: :btree
@@ -157,9 +156,8 @@ ActiveRecord::Schema.define(version: 20160924003019) do
     t.string   "title"
     t.text     "synopsis"
     t.date     "date"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "path",       default: "notfound.mp4", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "movies_users", id: false, force: :cascade do |t|
