@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'flix#index'
 
   get '/search/', to: 'flix#search', as: 'search_content'
-  get '/search/clientes', to: 'search#clients', as: 'search_clients'
+  get '/search/clients', to: 'search#clients', as: 'search_clients'
 
   devise_for :clients
 
