@@ -21,11 +21,12 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
 
-  database: softwaredb
-  host: localhost
 
 development:
   <<: *default
+
+  database: softwaredb
+  host: localhost
 
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -80,6 +81,6 @@ test:
 #
 production:
   <<: *default
-
-  username: <%= ENV['FLIX_DB_USER'] %>
-  password: <%= ENV['FLIX_DB_PASSWORD'] %>
+  host: <%= ENV['DATABASE_URL'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
