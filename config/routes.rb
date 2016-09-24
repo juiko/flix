@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   get '/search/clients'
 
-  devise_for :clients, controllers: { registrations: 'registrations' }
+  scope 'devise' do
+    devise_for :clients, controllers: { registrations: 'registrations' }
+  end
 
   match '/contacts',     to: 'contacts#new', via: 'get'
   resources:contacts
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   resources:movies
   resources:shows
   resources:admins
-  # resources:clients
+  resources:clients
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
