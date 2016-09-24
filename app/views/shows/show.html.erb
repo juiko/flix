@@ -1,0 +1,44 @@
+<div class="row">
+  <h1>
+    <%= @show.title %>
+  </h1>
+</div>
+
+<div class="row">
+
+
+  <ul class="nav nav-tabs" role="tablist">
+    <% @show.sorted_seasons.each do |season| %>
+      <li role="presentation"
+
+	  <% if season.number == 0 %> class="active" <% end %>
+      >
+	<a href="#season_<%= season.number %>" role="tab" data-toggle="tab">
+	  Temporada <%= season.number %>
+	</a>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="tab-content">
+    <% @show.sorted_seasons.each do |season| %>
+      <div role="tabpanel"
+	   data-toggle="tab"
+	   <% if season.number == 0 %>
+	   class="tab-pane active"
+	   <% else %>
+	   class="tab-pane"
+	   <% end %>
+
+	   id="season_<%= season.number %>"
+      >
+
+	<%= render 'partials/season_table', season: season %>
+
+	<!-- Capitulos temporada <%= season.number %>
+	   -->
+      </div>
+    <% end %>
+  </div>
+
+</div>

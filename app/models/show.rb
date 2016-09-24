@@ -11,4 +11,8 @@ class Show < ActiveRecord::Base
   def klass
     'Serie'
   end
+
+  def sorted_seasons
+    seasons.order :number
+  end
 end

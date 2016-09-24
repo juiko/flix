@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <td>
+	Numero
+      </td>
+
+      <td>
+	Nombre
+      </td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% season.sorted_episodes.each do |episode| %>
+      <tr>
+	<td>
+	  <%= episode.number %>
+	</td>
+
+	<td>
+	  <%= link_to episode.title, episode_path(episode) %>
+	</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
