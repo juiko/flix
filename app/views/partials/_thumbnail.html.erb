@@ -17,9 +17,18 @@
     </div>
 
     <div class="ratings">
-      <p class="pull-right"></p>15 votaciones
+      <p class="pull-right"></p>
 
+      <%= content.votes.count %>
 
+      <% if content.votes.count != 1 %>
+	votos
+      <% else %>
+	voto
+      <% end %>
+
+      <!-- 15 votaciones
+	 -->
       <%= render 'partials/votes', votable: content %>
     </div>
   </div>
