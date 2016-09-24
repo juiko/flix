@@ -1,7 +1,6 @@
 class AdminsController < ApplicationController
   before_action :authenticate_client!
 
-
   def index
     #get   select alll
     @admin = Client.all

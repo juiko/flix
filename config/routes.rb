@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'flix#index'
 
   get '/search/', to: 'flix#search', as: 'search_content'
+  get '/search/clientes', to: 'search#clients', as: 'search_clients'
 
   devise_for :clients
 
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
   resources:episodes
   resources:movies
   resources:shows
+  resources:admins
+  resources:clients
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
