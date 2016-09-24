@@ -10,4 +10,5 @@ class Movie < ActiveRecord::Base
   def klass
     'Pelicula'
   end
+
 end
