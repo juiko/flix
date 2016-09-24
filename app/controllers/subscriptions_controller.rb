@@ -1,32 +1,26 @@
 class SubscriptionsController < ApplicationController
-  
-  def index
-    @subscriptions = Subscription.all
-  end
 
-  def show
-    authorize! :update, @client
-    @subscription = Subscription.find(params[:id])
-  end
+  before_filter :authenticate_client!
 
   def new
-    @subscription = Subscription.new
   end
 
-  def create
-    @subscription = Subscription.new(name: params[:subscription][:name],
-                                    price: params[:subscription][:price],
-                                    duration: params[:subscription][:duration])
-    if @subscription.save
-      redirect_to admins_path, id: 0
-    else
-      render :new
-    end
+  def update
+    token = params[:stripeToken]
+
+    customer = Stripe::Customer.create(
+      card: token,
+      plan: 30,
+      email: current_client.email
+
+      )
+    current_client.subscribed = true
+    current_client.stripeid = customer.id
+    current_client.save
+
+    redirec_to root_path
   end
 
-  def destroy
-    @subscription = Subscription.find(params[:id])
-    @subscription.destroy
-    redirect_to clients_path
-  end
+
+
 end
