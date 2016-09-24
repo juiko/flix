@@ -60,7 +60,7 @@ rand(100).times do
     se = Season.create! number: rand(5), show: s
 
     rand(20).times do
-      Episode.create! season: se
+      Episode.create! season: se, number: rand(10) + 1, title: FFaker::Movie.title
     end
   end
 end
