@@ -1,13 +1,14 @@
 <div>
+  <strong>
+    <%= client.name %>
+  </strong>
 
-  <strong><%= client
-ame %></strong>
-  <%= client.telefono%>
+  <%= client.phone%>
   <%= client.email%>
 
   -
+
   <%= link_to "Editar", edit_client_path(client), style:"clolor:blue;"%>
   <%= link_to "Eliminar", client, method: :delete ,style:"clolor:blue;"%>
-
 
 </div>

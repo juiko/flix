@@ -5,11 +5,12 @@ class ClientsController < ApplicationController
 
   def index
     @clients = Client.all
+    authorize current_client
   end
 
   def show
-    authorize! :update, @client
     @client = Client.find(params[:id])
+    authorize @client
   end
 
   def destroy
@@ -20,5 +21,10 @@ class ClientsController < ApplicationController
 
   def edit
     @client = Client.find(params[:id])
+  end
+
+
+  def pundit_user
+    current_client
   end
 end
