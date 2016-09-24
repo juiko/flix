@@ -1,1 +1,0 @@
-$("#resultados").append("<%= j render @subscriptions %>")
