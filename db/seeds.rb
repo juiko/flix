@@ -82,7 +82,9 @@ ActiveRecord::Base.transaction do
     client.password = '123456'
     client.password_confirmation = '123456'
     client.save!
+  end
 
+  Client.all.each do |client|
     Random.rand(5).times do
       user = User.create! name: FFaker::Name.name, client: client
 
