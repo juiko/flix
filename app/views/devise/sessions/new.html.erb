@@ -10,11 +10,14 @@
 	  <%= f.email_field :email, autofocus: true, class:"form-control" %>
 	</div>
 
+	<br>
+
 	<div class="field">
 	  <%= f.label :password %></br>
 	  <%= f.password_field :password, autocomplete: "off" , class:"form-control"%>
 	</div>
 
+	<br>
 
 	<% if devise_mapping.rememberable? %>
 	  <div class="field">
@@ -24,13 +27,13 @@
 	<% end %>
 
 	<div class="acctions">
-	  <%= f.submit "Iniciar Sesion",class:"btn be-b white" %>
+	  <%= f.submit "Iniciar Sesion",class: 'btn btn-default' %>
 	</div>
       <% end %>
 
       <br>
 
-      <%= link_to 'Olvide mi contraseña', new_client_password_url, class: 'btn be-b white' %>
+      <%= link_to 'Olvide mi contraseña', new_client_password_url, class: 'btn btn-default' %>
 
     </div>
   </div>
