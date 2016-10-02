@@ -1,0 +1,24 @@
+version: "2"
+
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+
+    depends_on:
+      - postgres
+
+    links:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: 'dxd'
+      POSTGRES_PASSWORD: 'software02'
+      POSTGRES_DB: 'softwaredb'
+    ports:
+      - "5432"

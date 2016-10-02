@@ -24,7 +24,8 @@ default: &default
 development:
   <<: *default
 
-  host: localhost
+  host: postgres
+  port: 5432
   database: softwaredb
 
 
