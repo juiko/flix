@@ -8,15 +8,5 @@
 
 
 <% if client_signed_in? %>
-  <li>
-    <div class="input-group">
-      <form class="navbar-form" action="/search">
-	<input type="search" class="form-control" placeholder="Buscar por titulo" name="query">
-	<span class="input-group">
-	  <button class="btn btn-default" type="submit">
-	    Buscar
-	  </button>
-      </form>
-    </div>
-  </li>
+  <%= render 'partials/search_input' %>
 <% end %>

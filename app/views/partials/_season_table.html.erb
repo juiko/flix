@@ -9,13 +9,15 @@
 	Nombre
       </td>
 
-      <td>
-	Editar
-      </td>
+      <% if current_client.try(:admin?) %>
+	<td>
+	  Editar
+	</td>
 
-      <td>
-	Eliminar
-      </td>
+	<td>
+	  Eliminar
+	</td>
+      <% end %>
     </tr>
   </thead>
 
@@ -30,12 +32,15 @@
 	  <%= link_to episode.title, show_season_episode_path(season.show, season, episode) %>
 	</td>
 
-	<td>
-	  <%= link_to 'Editar', edit_show_season_episode_path(season.show, season, episode) %>
-	</td>
+	<% if current_client.try(:admin?) %>
+	  <td>
+	    <%= link_to 'Editar', edit_show_season_episode_path(season.show, season, episode) %>
+	  </td>
 
-	<td>
-	  <%= link_to 'Eliminar', show_season_episode_path(season.show, season, episode), method: :delete %>
+	  <td>
+	    <%= link_to 'Eliminar', show_season_episode_path(season.show, season, episode), method: :delete %>
+	  </td>
+	<% end  %>
       </tr>
     <% end %>
   </tbody>
