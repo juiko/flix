@@ -1,5 +1,6 @@
 class EpisodesController < ApplicationController
   before_action :authenticate_client!
+  before_action :authorize_client!, only: [:edit, :destroy, :create, :update]
 
   def show
     @episode = Episode.find params[:id]
