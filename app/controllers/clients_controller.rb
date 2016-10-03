@@ -33,8 +33,19 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:id])
   end
 
+  def update
+    @client = Client.find params[:id]
+
+    @client.update_attributes(client_params)
+
+    redirect_to @client, notice: 'Cliente actualizado correctamente'
+  end
 
   def pundit_user
     current_client
+  end
+
+  def client_params
+    params.require(:client).permit(:name, :phone, :email)
   end
 end
