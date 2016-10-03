@@ -1,5 +1,4 @@
 class ShowsController < ApplicationController
-  before_action :authenticate_client!
   before_action :find_show, only: [:edit, :update, :show, :destroy]
 
   def index
