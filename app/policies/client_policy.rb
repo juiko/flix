@@ -9,11 +9,11 @@ class ClientPolicy < ApplicationPolicy
   end
 
   def show?
-    @client.name == record.name
+    @client.admin
   end
 
   def edit?
-    @client.name == record.name
+    @client.admin
   end
 
   private

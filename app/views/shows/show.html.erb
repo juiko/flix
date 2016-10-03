@@ -7,7 +7,7 @@
 
 <div class="pull-left">
   <% if  current_client.try(:admin?) %>
-    <%#= link_to 'Agregar Temporada', new_season_path %>
+    <%= link_to 'Agregar Temporada', new_show_season_path(@show) %>
   <% end %>
 </div>
 
