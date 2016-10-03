@@ -40,9 +40,11 @@
 	   id="season_<%= season.number %>"
       >
 
-	<div class="pull-left">
-	  <%= link_to 'Agregar Capitulo', new_show_season_episode_path(@show, season) %>
-	</div>
+	<% if current_client.try(:admin?) %>
+	  <div class="pull-left">
+	    <%= link_to 'Agregar Capitulo', new_show_season_episode_path(@show, season) %>
+	  </div>
+	<% end %>
 
 	<br>
 
