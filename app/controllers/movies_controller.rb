@@ -2,21 +2,13 @@ class MoviesController < ApplicationController
   before_action :authenticate_client!
 
   def new
-    @pelicula = Movie.new
+    @movie = Movie.new
   end
 
   def create
     @pelicula = Movie.new(pelicula_params)
-
     @pelicula.save!
-
     redirect_to @pelicula
-
-    # if @pelicula.save
-    #   redirect_to @pelicula
-    # else
-    #   redirect_to url_for('new')
-    # end
   end
 
   def show
@@ -28,10 +20,29 @@ class MoviesController < ApplicationController
   end
 
   def edit
+    @movie = Movie.find(params[:id])
+  end
+
+  def update
+    @movie = Movie.find(params[:id])
+
+    if @movie.update_attributes(pelicula_params)
+      redirect_to @movie
+    end
   end
 
   def destroy
-    Movie.find(params[:id]).destroy
+    movie = Movie.find(params[:id])
+    movie.genres.each do |genre|
+      genre.movies.delete movie
+    end
+
+    movie.votes.each do |vote|
+      vote.destroy
+    end
+
+    movie.destroy
+    redirect_to root_path, notice: 'Pelicula eliminada correctamente'
   end
 
   def list

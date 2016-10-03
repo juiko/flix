@@ -1,1 +1,22 @@
-<%= render 'partials/list_content', content: @contenido %>
+<% if @recomendados %>
+  <h1>
+    Recomendados
+  </h1>
+
+<% end %>
+
+
+<div class="row">
+  <h1>
+    Peliculas
+  </h1>
+  <%= render 'partials/list_content', content: @movies %>
+</div>
+
+<div class="row">
+  <h1>
+    Series
+  </h1>
+
+  <%= render 'partials/list_content', content: @shows %>
+</div>
