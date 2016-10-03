@@ -23,25 +23,27 @@
 
   <tbody>
     <% season.sorted_episodes.each do |episode| %>
-      <tr>
-	<td>
-	  <%= episode.number %>
-	</td>
-
-	<td>
-	  <%= link_to episode.title, show_season_episode_path(season.show, season, episode) %>
-	</td>
-
-	<% if current_client.try(:admin?) %>
+      <% cache episode do %>
+	<tr>
 	  <td>
-	    <%= link_to 'Editar', edit_show_season_episode_path(season.show, season, episode) %>
+	    <%= episode.number %>
 	  </td>
 
 	  <td>
-	    <%= link_to 'Eliminar', show_season_episode_path(season.show, season, episode), method: :delete %>
+	    <%= link_to episode.title, show_season_episode_path(season.show, season, episode) %>
 	  </td>
-	<% end  %>
-      </tr>
+
+	  <% if current_client.try(:admin?) %>
+	    <td>
+	      <%= link_to 'Editar', edit_show_season_episode_path(season.show, season, episode) %>
+	    </td>
+
+	    <td>
+	      <%= link_to 'Eliminar', show_season_episode_path(season.show, season, episode), method: :delete %>
+	    </td>
+	  <% end  %>
+	</tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

@@ -16,41 +16,45 @@
 <div class="row">
   <ul class="nav nav-tabs" role="tablist">
     <% @show.sorted_seasons.each do |season| %>
-      <li role="presentation"
+      <% cache season do %>
+	<li role="presentation"
 
-	  <% if season.number == 0 %> class="active" <% end %>
-      >
-	<a href="#season_<%= season.number %>" role="tab" data-toggle="tab">
-	  Temporada <%= season.number %>
-	</a>
-      </li>
+	    <% if season.number == 0 %> class="active" <% end %>
+	>
+	  <a href="#season_<%= season.number %>" role="tab" data-toggle="tab">
+	    Temporada <%= season.number %>
+	  </a>
+	</li>
+      <% end %>
     <% end %>
   </ul>
 
   <div class="tab-content">
     <% @show.sorted_seasons.each do |season| %>
-      <div role="tabpanel"
-	   data-toggle="tab"
-	   <% if season.number == 0 %>
-	   class="tab-pane active"
-	   <% else %>
-	   class="tab-pane"
-	   <% end %>
+      <% cache season do %>
+	<div role="tabpanel"
+	     data-toggle="tab"
+	     <% if season.number == 0 %>
+	     class="tab-pane active"
+	     <% else %>
+	     class="tab-pane"
+	     <% end %>
 
-	   id="season_<%= season.number %>"
-      >
+	     id="season_<%= season.number %>"
+	>
 
-	<% if current_client.try(:admin?) %>
-	  <div class="pull-left">
-	    <%= link_to 'Agregar Capitulo', new_show_season_episode_path(@show, season) %>
-	  </div>
-	<% end %>
+	  <% if current_client.try(:admin?) %>
+	    <div class="pull-left">
+	      <%= link_to 'Agregar Capitulo', new_show_season_episode_path(@show, season) %>
+	    </div>
+	  <% end %>
 
-	<br>
+	  <br>
 
-	<%= render 'partials/season_table', season: season %>
+	  <%= render 'partials/season_table', season: season %>
 
-      </div>
+	</div>
+      <% end %>
     <% end %>
   </div>
 
