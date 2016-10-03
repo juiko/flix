@@ -15,6 +15,16 @@ class ClientsController < ApplicationController
 
   def destroy
     @client = Client.find(params[:id])
+
+    @client.users.each do |user|
+
+      user.votes.each do |vote|
+        vote.destroy
+      end
+
+      user.destroy
+    end
+
     @client.destroy
     redirect_to clients_path
   end

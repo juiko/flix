@@ -7,4 +7,15 @@ class User < ActiveRecord::Base
 
   has_many :movie_votes
   has_many :show_votes
+
+  def genres
+    movie_genres = movies.map(&:genres)
+    show_genres = shows.map(&:genres)
+    g = movie_genres + show_genres
+    g.flatten.uniq
+  end
+
+  def votes
+    (movie_votes + show_votes).flatten
+  end
 end
