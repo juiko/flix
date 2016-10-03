@@ -8,11 +8,15 @@ class MoviesController < ApplicationController
   def create
     @pelicula = Movie.new(pelicula_params)
 
-    if @pelicula.save
-      redirect_to url_for('index', @pelicula)
-    else
-      redirect_to url_for('new')
-    end
+    @pelicula.save!
+
+    redirect_to @pelicula
+
+    # if @pelicula.save
+    #   redirect_to @pelicula
+    # else
+    #   redirect_to url_for('new')
+    # end
   end
 
   def show
@@ -35,6 +39,6 @@ class MoviesController < ApplicationController
   end
 
   def pelicula_params
-    params.require(:pelicula).permit(:title, :date, :synopsis)
+    params.require(:movie).permit(:title, :date, :synopsis, :movie)
   end
 end
