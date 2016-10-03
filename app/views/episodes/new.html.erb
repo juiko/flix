@@ -1,0 +1,27 @@
+<h1>
+  Crear Episodio
+</h1>
+
+<div class="row-center-xs">
+  <%= form_for @episode, url: { action: 'create' } do |p| %>
+
+    <div class="field">
+      <label> Titulo </label>
+      <%= p.text_field :title, label: "Nombre" %>
+    </div>
+
+    <div class="field">
+      <label> Numbero </label>
+      <%= p.number_field :number, label: 'Numero' %>
+    </div>
+
+    <div class="field">
+      <%= p.file_field :episode, label: 'Archivo' %>
+    </div>
+
+    <input hidden="true" value="<%= @episode.season.id %>" name="episode[season]">
+
+    <%= p.submit "Create" %>
+  <% end %>
+
+</div>

@@ -11,6 +11,8 @@
   <% end %>
 </div>
 
+<br>
+
 <div class="row">
   <ul class="nav nav-tabs" role="tablist">
     <% @show.sorted_seasons.each do |season| %>
@@ -37,6 +39,12 @@
 
 	   id="season_<%= season.number %>"
       >
+
+	<div class="pull-left">
+	  <%= link_to 'Agregar Capitulo', new_show_season_episode_path(@show, season) %>
+	</div>
+
+	<br>
 
 	<%= render 'partials/season_table', season: season %>
 

@@ -19,13 +19,6 @@ class SeasonsController < ApplicationController
     @season.save
 
     redirect_to show_path(@show)
-    # @show = Show.find(params[:show_id].to_i)
-    # @season = Season.find params[:id]
-
-    # @season.show = @show
-    # @season.save
-
-    # redirect_to @season
   end
 
   def show_params
