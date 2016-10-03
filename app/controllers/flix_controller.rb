@@ -1,15 +1,15 @@
 class FlixController < ApplicationController
   def index
-    peliculas = Movie.first(10)
-    series = Show.first(10)
-
-    @contenido = []
-    @contenido.concat peliculas
-    @contenido.concat series
-
-    @contenido.shuffle!
+    @movies = Movie.all
+    @shows = Show.all
   end
 
   def search
+    query = params[:query]
+
+    movies = Movie.where('title like ?', "%#{query}%")
+    shows = Show.where('title like ?', "%#{query}%")
+
+    @content = (movies + shows).flatten
   end
 end

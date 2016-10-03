@@ -1,0 +1,14 @@
+<div class="row">
+  <form>
+    <input type="text" name="query">
+    <input type="submit" value="Buscar">
+  </form>
+</div>
+
+<br>
+
+<div class="row">
+  <% if @content %>
+    <%= render 'partials/list_content', content: @content %>
+  <% end %>
+</div>
