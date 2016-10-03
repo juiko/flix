@@ -4,9 +4,14 @@
   </h1>
 </div>
 
+
+<div class="pull-left">
+  <% if  current_client.try(:admin?) %>
+    <%#= link_to 'Agregar Temporada', new_season_path %>
+  <% end %>
+</div>
+
 <div class="row">
-
-
   <ul class="nav nav-tabs" role="tablist">
     <% @show.sorted_seasons.each do |season| %>
       <li role="presentation"
@@ -35,8 +40,6 @@
 
 	<%= render 'partials/season_table', season: season %>
 
-	<!-- Capitulos temporada <%= season.number %>
-	   -->
       </div>
     <% end %>
   </div>

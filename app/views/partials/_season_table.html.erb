@@ -8,6 +8,14 @@
       <td>
 	Nombre
       </td>
+
+      <td>
+	Editar
+      </td>
+
+      <td>
+	Eliminar
+      </td>
     </tr>
   </thead>
 
@@ -19,8 +27,15 @@
 	</td>
 
 	<td>
-	  <%= link_to episode.title, episode_path(episode) %>
+	  <%= link_to episode.title, show_season_episode_path(season.show, season, episode) %>
 	</td>
+
+	<td>
+	  <%= link_to 'Editar', edit_show_season_episode_path(season.show, season, episode) %>
+	</td>
+
+	<td>
+	  <%= link_to 'Eliminar', show_season_episode_path(season.show, season, episode), method: :delete %>
       </tr>
     <% end %>
   </tbody>

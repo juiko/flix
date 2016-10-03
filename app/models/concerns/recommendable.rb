@@ -1,9 +1,8 @@
 module Recommendable
   extend ActiveSupport::Concern
 
-  def similar
-    self
-      .class
+  def similar(klass=self.class)
+    klass
       .joins(:genres)
       .uniq
       .where.not(id: id)

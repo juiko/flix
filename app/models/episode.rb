@@ -1,6 +1,5 @@
 class Episode < ActiveRecord::Base
   include Urlable
-  # include Recommendable
   include EpisodeUploader[:episode]
 
   belongs_to :season

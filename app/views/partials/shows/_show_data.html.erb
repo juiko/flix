@@ -1,0 +1,12 @@
+<%= bootstrap_form_for @show do |p| %>
+
+  <div class="field">
+    <%= p.text_field :title, label: "Nombre" %>
+  </div>
+
+  <div class="field">
+    <%= p.text_area :synopsis, size: "15x6" %>
+  </div>
+
+  <%= p.submit "Create" %>
+<% end %>

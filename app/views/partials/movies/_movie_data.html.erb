@@ -1,0 +1,23 @@
+<h1>
+  Crear Pelicula
+</h1>
+
+<div class="row-center-xs">
+  <%= bootstrap_form_for movie do |p| %>
+
+    <div class="field">
+      <%= p.text_field :title, label: "Nombre" %>
+    </div>
+
+    <div class="field">
+      <%= p.text_area :synopsis, size: "15x6" %>
+    </div>
+
+    <div class="field">
+      <%= p.file_field :movie, label: 'Archivo' %>
+    </div>
+
+    <%= p.submit "Create" %>
+  <% end %>
+
+</div>

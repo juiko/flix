@@ -1,0 +1,19 @@
+<h1>
+  Crear Episodio
+</h1>
+
+<div class="row-center-xs">
+  <%= bootstrap_form_for @episode, url: show_season_episode_path(@episode.season.show, @episode.season, @episode) do |p| %>
+
+    <div class="field">
+      <%= p.text_field :title, label: "Nombre" %>
+    </div>
+
+    <div class="field">
+      <%= p.file_field :episode, label: 'Archivo' %>
+    </div>
+
+    <%= p.submit "Create" %>
+  <% end %>
+
+</div>

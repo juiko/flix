@@ -1,0 +1,18 @@
+<div class="row">
+  <h1>
+    <%= @episode.title %>
+  </h1>
+</div>
+
+<%= render 'partials/show_content', content: @episode %>
+
+<div class="row">
+  <h3>
+    Similares
+  </h3>
+</div>
+
+<div class="row" id="similar">
+  <%= render 'partials/list_content',
+  content: SearchContent.new.by_genre(@episode.genres).shuffle.take(10) %>
+</div>
