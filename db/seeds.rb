@@ -26,23 +26,23 @@ end
 ActiveRecord::Base.transaction do
 
   puts 'Cleaning database'
-  MovieVote.all.each(&:destroy)
-  ShowVote.all.each(&:destroy)
-  User.all.each(&:destroy)
-  Client.all.each(&:destroy)
-  Movie.all.each(&:destroy)
-  Episode.all.each(&:destroy)
-  Season.all.each(&:destroy)
-  Show.all.each(&:destroy)
-  Genre.all.each(&:destroy)
+  MovieVote.find_each(&:destroy)
+  ShowVote.find_each(&:destroy)
+  User.find_each(&:destroy)
+  Client.find_each(&:destroy)
+  Movie.find_each(&:destroy)
+  Episode.find_each(&:destroy)
+  Season.find_each(&:destroy)
+  Show.find_each(&:destroy)
+  Genre.find_each(&:destroy)
 
   puts 'Creating genres'
-  rand(100).times do
+  rand(50).times do
     Genre.create! title: Faker::Book.genre
   end
 
   puts 'Creating movies'
-  rand(100).times do
+  rand(50).times do
     m = Movie.create! title: FFaker::Movie.title
 
     rand(10).times do
@@ -51,7 +51,7 @@ ActiveRecord::Base.transaction do
   end
 
   puts 'Creating shows'
-  rand(100).times do
+  rand(50).times do
     s = Show.create! title: FFaker::Movie.title
 
     rand(10).times do
@@ -84,7 +84,7 @@ ActiveRecord::Base.transaction do
     client.save!
   end
 
-  Client.all.each do |client|
+  Client.find_each do |client|
     Random.rand(5).times do
       user = User.create! name: FFaker::Name.name, client: client
 

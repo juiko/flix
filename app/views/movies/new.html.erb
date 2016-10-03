@@ -4,12 +4,20 @@
 
 <%= bootstrap_form_for @pelicula do |p| %>
 
-  <%= p.text_field :title, label: "Nombre" %>
+  <div class="field">
+    <%= p.text_field :title, label: "Nombre" %>
+  </div>
 
+  <div class="field">
+    <%= p.text_area :synopsis, size: "60x12" %>
+  </div>
 
-  <%= p.text_area :synopsis, size: "60x12" %>
+  <div class="field">
+    <%= p.label :pelicula %>
+    <%= p.file_field :movie %>
+  </div>
 
-  <%= p.date_field :date %>
+  <%= p.date_field :date, label: 'Fecha' %>
 
 
   <%= p.submit "Create" %>

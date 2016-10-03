@@ -26,7 +26,7 @@ gem 'bootstrap-sass'
 
 gem "devise"
 
-gem "paperclip"
+gem "shrine"
 
 gem "pundit"
 
@@ -55,10 +55,6 @@ gem 'faker'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
-  gem 'pry'
-
-  gem 'pry-doc'
 end
 
 group :development do
@@ -68,6 +64,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+  gem 'pry'
+  gem 'pry-doc'
+  gem 'rubocop'
 end
 
 group :production do
