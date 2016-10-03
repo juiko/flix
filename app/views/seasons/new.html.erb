@@ -1,0 +1,14 @@
+<h1>
+  Crear Temporada para serie: <%= session[:current_show][:title] %>
+</h1>
+
+<div class="row-center-xs">
+  <%= bootstrap_form_for @season do |p| %>
+
+    <div class="field">
+      <%= p.number_field :number, label: "numero" %>
+    </div>
+
+    <%= p.submit "Create" %>
+  <% end %>
+</div>

@@ -12,13 +12,19 @@ Rails.application.routes.draw do
   match '/contacts',     to: 'contacts#new', via: 'get'
   resources:contacts
 
+  resources :shows do
+    resources :seasons do
+      resources :episodes
+    end
+  end
+
   resources:users
   resources:genres
   resources:subscriptions
-  resources:seasons
-  resources:episodes
+  # resources:seasons
+  # resources:episodes
   resources:movies
-  resources:shows
+  # resources:shows
   resources:admins
   resources:clients
 
