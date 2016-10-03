@@ -7,4 +7,4 @@ Shrine.storages = {
 }
 
 Shrine.plugin :activerecord # :activerecord
-Shrine.plugin :cached_attachment_data # for forms
+# Shrine.plugin :cached_attachment_data # for forms
