@@ -1,5 +1,3 @@
 <% content.each do |weaita| %>
-  <% cache weaita do %>
-    <%= render 'partials/thumbnail', content: weaita %>
-  <% end %>
+  <%= render 'partials/thumbnail', content: weaita %>
 <% end %>

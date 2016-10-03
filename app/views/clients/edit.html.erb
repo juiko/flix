@@ -5,9 +5,7 @@
 
       <%= form_for(@client) do |f| %>
 	<% @client.errors.messages.each do |message| %>
-	  <% cache message do %>
-	    *<%= message %>
-	  <% end %>
+	  *<%= message%>
 	<% end %>
 	<div class= "field">
 	  <%= f.text_field :name, placeholder:"Nombre del Usuario"  , class:"form-control" %>
