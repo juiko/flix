@@ -1,5 +1,5 @@
 <li>
-  <%= form_tag '/search', method: 'get', class: 'navbar-form' do %>
+  <%= form_tag search_content_path, method: 'get', class: 'navbar-form' do %>
     <div class="row">
       <%= search_field_tag :query, 'Buscar por titulo', class: 'form-control' %>
       <%= button_tag 'Buscar', class: 'btn btn-default' %>

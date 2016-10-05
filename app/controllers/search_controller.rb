@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  before_action :authenticate_client!
+
   def clients
     palabra = "%#{params[:keyword]}%"
     @clients = Client.where("name LIKE ? or email LIKE ?", palabra, palabra)
@@ -23,4 +25,12 @@ class SearchController < ApplicationController
     end
   end
 
+  def content
+    query = params[:query]
+
+    movies = Movie.where('title like ?', "%#{query}%")
+    shows = Show.where('title like ?', "%#{query}%")
+
+    @content = (movies + shows).flatten
+  end
 end

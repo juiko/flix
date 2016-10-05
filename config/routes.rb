@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'flix#index'
 
-  get '/search/', to: 'flix#search', as: 'search_content'
+  get '/search/', to: 'search#content', as: 'search_content'
 
   get '/search/clients'
 
