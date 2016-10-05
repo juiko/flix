@@ -1,11 +1,8 @@
 <li>
-  <div class="input-group">
-    <form class="navbar-form" action="/search">
-      <input type="search" class="form-control" placeholder="Buscar por titulo" name="query">
-      <span class="input-group">
-	<button class="btn btn-default" type="submit">
-	  Buscar
-	</button>
-    </form>
-  </div>
+  <%= form_tag '/search', method: 'get', class: 'navbar-form' do %>
+    <div class="row">
+      <%= search_field_tag :query, 'Buscar por titulo', class: 'form-control' %>
+      <%= button_tag 'Buscar', class: 'btn btn-default' %>
+    </div>
+  <% end %>
 </li>

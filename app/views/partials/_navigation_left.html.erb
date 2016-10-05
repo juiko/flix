@@ -1,12 +1,9 @@
-<% if current_client.try(:admin?) %>
-  <%= render 'partials/admin_dropdown' %>
-<% end %>
-
 <% if client_signed_in? %>
+  <% if current_client.try(:admin?) %>
+    <%= render 'partials/admin_dropdown' %>
+  <% end %>
+
   <%= render 'partials/dropdown_contenido' %>
-<% end %>
 
-
-<% if client_signed_in? %>
   <%= render 'partials/search_input' %>
 <% end %>
