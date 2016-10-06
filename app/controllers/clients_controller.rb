@@ -26,7 +26,7 @@ class ClientsController < ApplicationController
     end
 
     @client.destroy
-    redirect_to clients_path
+    redirect_to :back, notice: 'Cliente eliminado correctamente'
   end
 
   def edit

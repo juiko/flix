@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
   root 'flix#index'
 
+  resources:clients
+  resources:movies
+
   get '/search/', to: 'search#content', as: 'search_content'
 
-  get '/search/clients'
+  # get '/search/clients'
 
   scope 'devise' do
     devise_for :clients, controllers: { registrations: 'registrations' }
   end
 
-  match '/contacts',     to: 'contacts#new', via: 'get'
   resources:contacts
 
   resources :shows do
@@ -18,15 +20,19 @@ Rails.application.routes.draw do
     end
   end
 
-  resources:users
-  resources:genres
-  resources:subscriptions
-  # resources:seasons
-  # resources:episodes
-  resources:movies
-  # resources:shows
-  resources:admins
-  resources:clients
+  scope 'admins' do
+    get 'clients', as: 'admins_clients', controller: 'admins'
+    # get 'clients', as: 'admins_clients', controller: :admins, action: :clients
+    # scope 'search' do
+    #   get 'clients', as: 'admin_clients_search'
+    # end
+  end
+
+  # resources:users
+  # resources:genres
+  # resources:subscriptions
+  # resources:admins
+  # resources:clients
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

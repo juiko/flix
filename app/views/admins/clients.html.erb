@@ -1,0 +1,63 @@
+<div class="row">
+  <%= form_tag admins_clients_path, method: :get do %>
+    <%= search_field_tag :query, 'Buscar cliente' %>
+    <%= button_tag 'Buscar', class: 'btn btn-default' %>
+  <% end %>
+</div>
+
+<br>
+
+<% if @clients %>
+  <div class="row">
+    <table class="table">
+      <thead>
+	<tr>
+	  <th>
+	    Nombre
+	  </th>
+
+	  <th>
+	    Telefono
+	  </th>
+
+	  <th>
+	    Email
+	  </th>
+
+	  <th>
+	    Editar
+	  </th>
+
+	  <th>
+	    Eliminar
+	  </th>
+	</tr>
+      </thead>
+      <tbody>
+	<% @clients.each do |client| %>
+	  <tr>
+	    <td>
+	      <%= client.name %>
+	    </td>
+
+	    <td>
+	      <%= client.phone %>
+	    </td>
+
+	    <td>
+	      <%= client.email %>
+	    </td>
+
+	    <td>
+	      <%= link_to raw('<span class="glyphicon glyphicon-pencil"></span>'), edit_client_path(client) %>
+	    </td>
+
+	    <td>
+	      <%= link_to raw('<span class="glyphicon glyphicon-remove"></span>'), client, method: :delete %>
+	    </td>
+	  </tr>
+	<% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

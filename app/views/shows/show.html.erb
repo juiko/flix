@@ -4,7 +4,6 @@
   </h1>
 </div>
 
-
 <div class="row">
   <% if  current_client.try(:admin?) %>
     <%= link_to 'Agregar Temporada', new_show_season_path(@show), class: 'btn btn-default' %>
@@ -42,6 +41,8 @@
 
 	<div class="row">
 	  <% if current_client.try(:admin?) %>
+	    <br>
+
 	    <div class="row">
 	    <%= link_to 'Agregar Capitulo', new_show_season_episode_path(@show, season), class: 'btn btn-default' %>
 	    <%= link_to 'Eliminar Temporada', show_season_path(@show, season), method: :delete, class: 'btn btn-danger' %>

@@ -16,6 +16,10 @@ class ClientPolicy < ApplicationPolicy
     @client.admin
   end
 
+  def clients?
+    @client.admin
+  end
+
   private
 
   def admin?
