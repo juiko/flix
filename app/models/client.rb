@@ -6,4 +6,9 @@ class Client < ActiveRecord::Base
 
   has_one :subscription
   has_many :users
+
+  def self.search_by_name_or_email(query)
+    query = "%#{query}%"
+    Client.where("name LIKE ? or email LIKE ?", query, query)
+  end
 end
